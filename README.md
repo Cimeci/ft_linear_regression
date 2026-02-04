@@ -1,73 +1,73 @@
 # Ft_linear_regression
 
-> Projet d'introduction au Machine Learning : prédiction du prix d'une voiture par régression linéaire
+> Introduction to Machine Learning: car price prediction using linear regression
 
 [![Author](https://img.shields.io/badge/Author-Cimeci-blue)](https://github.com/Cimeci)
 
 ---
 
-## Table des matières
+## Table of Contents
 
-- [À propos](#-à-propos)
-- [Fonctionnalités](#-fonctionnalités)
-- [Prérequis](#-prérequis)
+- [About](#-about)
+- [Features](#-features)
+- [Prerequisites](#-prerequisites)
 - [Installation](#-installation)
-- [Utilisation](#-utilisation)
-- [Fonctionnement](#-fonctionnement)
-- [Structure du projet](#-structure-du-projet)
-- [Auteur](#-auteur)
+- [Usage](#-usage)
+- [How it Works](#-how-it-works)
+- [Project Structure](#-project-structure)
+- [Author](#-author)
 
 ---
 
-## À propos
+## About
 
-Ce projet représente mes premiers pas dans l'intelligence artificielle et plus précisément le Machine Learning. Il implémente un algorithme de **régression linéaire** utilisant la **descente de gradient** pour prédire le prix d'une voiture en fonction de son kilométrage.
+This project represents my first steps into artificial intelligence and more specifically Machine Learning. It implements a **linear regression** algorithm using **gradient descent** to predict a car's price based on its mileage.
 
-### Objectifs pédagogiques
+### Learning Objectives
 
-- Comprendre les fondamentaux de la régression linéaire
-- Implémenter l'algorithme de descente de gradient
-- Maîtriser la normalisation des données
-- Visualiser les résultats et la convergence du modèle
-
----
-
-## Fonctionnalités
-
-- **Lecture et traitement des données** depuis un fichier CSV
-- **Entraînement du modèle** avec l'algorithme de descente de gradient
-- **Prédiction du prix** d'une voiture selon son kilométrage
-- **Visualisation graphique** :
-  - Droite de régression sur les données
-  - Évolution de la fonction de coût
-  - Analyse des résidus
-- **Sauvegarde des paramètres** (theta0, theta1) pour réutilisation
+- Understand the fundamentals of linear regression
+- Implement the gradient descent algorithm
+- Master data normalization
+- Visualize results and model convergence
 
 ---
 
-## Prérequis
+## Features
 
-- Python 3.6 ou supérieur
-- pip (gestionnaire de paquets Python)
+- **Data reading and processing** from a CSV file
+- **Model training** with gradient descent algorithm
+- **Price prediction** for a car based on its mileage
+- **Graphical visualization**:
+  - Regression line on data
+  - Cost function evolution
+  - Residuals analysis
+- **Parameters saving** (theta0, theta1) for reuse
+
+---
+
+## Prerequisites
+
+- Python 3.6 or higher
+- pip (Python package manager)
 
 ---
 
 ## Installation
 
-1. Clonez le dépôt :
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Cimeci/Ft_linear_regression.git
 cd Ft_linear_regression
 ```
 
-2. Installez les dépendances :
+2. Install dependencies:
 
 ```bash
 pip install pandas matplotlib
 ```
 
-3. Exécutez le script principal :
+3. Run the main script:
 
 ```bash
 python3 ft_linear_regression.py
@@ -89,40 +89,40 @@ python3 ft_linear_regression.py
 
 ---
 
-## Utilisation
+## Usage
 
-### 1. Entraîner le modèle
+### 1. Train the Model
 
-Lancez l'entraînement sur les données du fichier `data.csv` :
+Run the training on data from the `data.csv` file:
 
-Cette commande va :
-- Charger les données
-- Normaliser les features (kilométrage)
-- Entraîner le modèle par descente de gradient
-- Afficher des graphiques de visualisation
-- Sauvegarder les paramètres (theta0, theta1) dans `theta.csv`
+This command will:
+- Load the data
+- Normalize the features (mileage)
+- Train the model using gradient descent
+- Display visualization graphs
+- Save the parameters (theta0, theta1) in `theta.csv`
 
-### 2. Prédire un prix
+### 2. Predict a Price
 
-Une fois le modèle entraîné, utilisez-le pour prédire le prix d'une voiture :
+Once the model is trained, use it to predict a car's price:
 
-L'application vous demandera de saisir un kilométrage et vous donnera le prix estimé.
+The application will ask you to enter a mileage and will give you the estimated price.
 
-**Exemple :**
+**Example:**
 ```
 Enter the mileage: 50000
 Estimated price: 7234.56
 ```
 
-### 3. Visualiser les résultats
+### 3. Visualize Results
 
-Affichez les graphiques de la droite de régression, de la fonction de coût et des résidus pour analyser les performances du modèle.
+Display graphs of the regression line, cost function, and residuals to analyze model performance.
 
 ![img_visualizer](./visualizer.png)
 
-### 4. Calculer la précision
+### 4. Calculate Precision
 
-Affichez la précision du modèle basé sur les résidus moyens et l'écart-type des résidus.
+Display the model's precision based on average residuals and residual standard deviation.
 
 ```bash
 Model precision: 73.30%
@@ -130,52 +130,52 @@ Model precision: 73.30%
 
 ---
 
-## Fonctionnement
+## How it Works
 
-### Régression linéaire
+### Linear Regression
 
-Le modèle cherche à trouver la meilleure droite $y = \theta_0 + \theta_1 \cdot x$ où :
-- $x$ : kilométrage (feature)
-- $y$ : prix estimé (target)
-- $\theta_0$ : ordonnée à l'origine (intercept)
-- $\theta_1$ : pente (coefficient)
+The model seeks to find the best line $y = \theta_0 + \theta_1 \cdot x$ where:
+- $x$: mileage (feature)
+- $y$: estimated price (target)
+- $\theta_0$: y-intercept (intercept)
+- $\theta_1$: slope (coefficient)
 
-### Descente de gradient
+### Gradient Descent
 
-L'algorithme optimise les paramètres en minimisant la fonction de coût (MSE - Mean Squared Error) :
+The algorithm optimizes parameters by minimizing the cost function (MSE - Mean Squared Error):
 
 $$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
 
-Les paramètres sont mis à jour itérativement :
+Parameters are updated iteratively:
 
 $$\theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}$$
 
-où $\alpha$ est le taux d'apprentissage (learning rate).
+where $\alpha$ is the learning rate.
 
-### Normalisation
+### Normalization
 
-Pour améliorer la convergence, les données sont normalisées :
+To improve convergence, data is normalized:
 
 $$x_{norm} = \frac{x - \mu}{\sigma}$$
 
 ---
 
-## Structure du projet
+## Project Structure
 
 ```
 Ft_linear_regression/
 │
-├── data.csv                    # Données d'entraînement (km, prix)
-├── theta.csv                   # Paramètres sauvegardés après entraînement
-├── train.py                    # Script d'entraînement du modèle
-├── predict.py                  # Script de prédiction
-├── ft_linear_regression.py     # Module principal (si applicable)
+├── data.csv                    # Training data (km, price)
+├── theta.csv                   # Saved parameters after training
+├── train.py                    # Model training script
+├── predict.py                  # Prediction script
+├── ft_linear_regression.py     # Main module (if applicable)
 └── README.md                   # Documentation
 ```
 
 ---
 
-## Auteur
+## Author
 
 **Cimeci**
 
