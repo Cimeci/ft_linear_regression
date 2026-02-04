@@ -67,6 +67,24 @@ cd Ft_linear_regression
 pip install pandas matplotlib
 ```
 
+```bash
+python3 ft_linear_regression.py
+```
+
+```bash
+================================
+|   Linear Regression Model     |
+================================
+1. Train the model
+2. Predict price
+3. Visualize training results
+4. Calculate precision
+5. Clean data
+6. More info
+7. Clean terminal
+0. Exit
+```
+
 ---
 
 ## Utilisation
@@ -74,10 +92,6 @@ pip install pandas matplotlib
 ### 1. Entraîner le modèle
 
 Lancez l'entraînement sur les données du fichier `data.csv` :
-
-```bash
-python train.py
-```
 
 Cette commande va :
 - Charger les données
@@ -90,16 +104,26 @@ Cette commande va :
 
 Une fois le modèle entraîné, utilisez-le pour prédire le prix d'une voiture :
 
-```bash
-python predict.py
-```
-
 L'application vous demandera de saisir un kilométrage et vous donnera le prix estimé.
 
 **Exemple :**
 ```
 Enter the mileage: 50000
 Estimated price: 7234.56
+```
+
+### 3. Visualiser les résultats
+
+Affichez les graphiques de la droite de régression, de la fonction de coût et des résidus pour analyser les performances du modèle.
+
+![img_visualizer](./visualizer.png)
+
+### 4. Calculer la précision
+
+Affichez la précision du modèle basé sur les résidus moyens et l'écart-type des résidus.
+
+```bash
+Model precision: 73.30%
 ```
 
 ---
