@@ -67,6 +67,8 @@ cd Ft_linear_regression
 pip install pandas matplotlib
 ```
 
+3. Exécutez le script principal :
+
 ```bash
 python3 ft_linear_regression.py
 ```
