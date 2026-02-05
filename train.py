@@ -96,24 +96,28 @@ class Train :
         plt.legend()
         plt.show()
 
+    # R² (coefficient of determination) calculation
+    # R² = 1 -> perfect fit,
+    # R² = 0 -> model does not explain any variance
+    # R² < 0 -> model is worse than a horizontal line
     def calculate_precision(self):
         y = self.price
         y_hat = self.estimate
 
-        mean_y = sum(y) / len(y)
+        mean_y = sum(y) / len(y) # mean of actual values (used for total sum of squares)
 
-        ss_res = 0.0
-        ss_tot = 0.0
+        ss_res = 0.0 # sum of squares of residuals (errors)
+        ss_tot = 0.0 # total sum of squares (variance of the data)
         i = 0
 
         while i < len(y):
-            ss_res += (y[i] - y_hat[i]) ** 2
-            ss_tot += (y[i] - mean_y) ** 2
+            ss_res += (y[i] - y_hat[i]) ** 2 # sum of squared residuals (errors)
+            ss_tot += (y[i] - mean_y) ** 2 # sum of squared differences from the mean (total variance)
             i += 1
 
-        if ss_tot == 0:
+        if ss_tot == 0: # no variance in the data, model cannot explain any variance
             print("Precision: 0.00 (no variance)")
             return 0.0
 
-        r2 = 1 - (ss_res / ss_tot)
+        r2 = 1 - (ss_res / ss_tot) # R² = 1 - (SS_res / SS_tot)
         return r2
