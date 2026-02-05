@@ -205,7 +205,7 @@ tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
 
 update $\theta_0$ :
 
-$$\theta_0 := \theta_0 - \alpha \frac{\partial J}{\partial \theta_0}$$
+$$\theta_1 := \theta_1 - \alpha \frac{\partial J}{\partial \theta_1}$$
 
 #### Denormalization
 
