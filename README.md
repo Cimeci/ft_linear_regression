@@ -152,6 +152,30 @@ $$\theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}$$
 
 where $\alpha$ is the learning rate.
 
+For θ₀ :
+
+```python
+tmp_theta0 = self.learning_rate * (1/self.m) * error.sum()
+```
+
+\frac{\partial J}{\partial \theta_0}
+= \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)})
+
+For θ₁ :
+
+```python
+tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
+```
+
+\frac{\partial J}{\partial \theta_1}
+= \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}
+
+Corresponding to the code:
+	•	learning_rate = \alpha
+	•	(1/self.m) = \frac{1}{m}
+	•	error.sum() = \sum (h - y)
+	•	error * km_norm = (h - y) x
+
 ### Normalization
 
 To improve convergence, data is normalized:

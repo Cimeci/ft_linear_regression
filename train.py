@@ -41,15 +41,16 @@ class Train :
             return
         return data
 
+    # Gradient descent implementation (gradient = vector of partial derivatives)
     def get_gradient(self):
         for _ in range(self.n_iterations):
-            self.estimate = self.theta0 + self.theta1 * self.km_norm
-            error = self.estimate - self.price
+            self.estimate = self.theta0 + self.theta1 * self.km_norm # hypothesis function
+            error = self.estimate - self.price # error vector (residuals)
 
             tmp_theta0 = self.learning_rate * (1/self.m) * error.sum() # height adjustment
             tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum() # slope adjustment 
             
-            self.theta0 -= tmp_theta0                     
+            self.theta0 -= tmp_theta0                  
             self.theta1 -= tmp_theta1
 
     def normalize_theta(self):
