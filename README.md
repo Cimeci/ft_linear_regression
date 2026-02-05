@@ -140,48 +140,58 @@ The model seeks to find the best line $y = \theta_0 + \theta_1 \cdot x$ where:
 - $\theta_0$: y-intercept (intercept)
 - $\theta_1$: slope (coefficient)
 
-### Gradient Descent
-
-The algorithm optimizes parameters by minimizing the cost function (MSE - Mean Squared Error):
-
-$$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
-
-Parameters are updated iteratively:
-
-$$\theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}$$
-
-where $\alpha$ is the learning rate.
-
-For  $\theta_0$ :
-
-```python
-tmp_theta0 = self.learning_rate * (1/self.m) * error.sum()
-```
-
-$$\frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)})$$
-
-For  $\theta_1$ :
-
-```python
-tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
-```
-
-$$\frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}$$
-
-Corresponding to the code:
-
-| Code | Mathematical Notation |
-| :--- | ---: |
-| learning_rate | $\alpha$ |
-| (1/self.m) | $$\frac{1}{m}$$ |
-| error.sum() | $$\sum (h - y)$$ |
-| error * km_norm | $$(h - y) x$$ |
-
 ### Normalization
 
 To improve convergence, data is normalized:
 
 $$x_{norm} = \frac{x - \mu}{\sigma}$$
+
+| $\mu$ | moyenne |
+| $\sigma$ | écart-type |
+
+### Gradient Descent
+
+**The Gradient Descent algorithm iteratively updates parameters to minimize the cost function $J(\theta)$**
+
+EstimatePrice Function :
+```python
+self.estimate = self.theta0 + self.theta1 * self.km_norm
+```
+
+Function result used to calculate the error vector (residuals) :
+```python
+error = self.estimate - self.price
+```
+
+and the error vector is used to calculate the partial derivatives of the cost function with respect to $\theta_0$ and $\theta_1$.
+
+For  $\theta_0$ :
+
+$$\frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)})$$
+
+```python
+tmp_theta0 = self.learning_rate * (1/self.m) * error.sum()
+```
+
+$$tmp_\theta0 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i])$$
+
+For  $\theta_1$ :
+
+$$\frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}$$
+
+```python
+tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
+```
+
+$$tmp_\theta1 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i]) * mileage[i]$$
+
+### Denormalization
+
+To predict a price from a mileage, the input mileage is normalized before applying the model:
+
+$$\boxed{\theta_1^{real} = \frac{\theta_1}{\sigma}}$$
+
+$$\boxed{\theta_0^{real} = \theta_0 - \theta_1^{real} \cdot \mu}$$
 
 ---
 
