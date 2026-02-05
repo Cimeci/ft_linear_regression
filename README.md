@@ -140,7 +140,11 @@ The model seeks to find the best line $y = \theta_0 + \theta_1 \cdot x$ where:
 - $\theta_0$: y-intercept (intercept)
 - $\theta_1$: slope (coefficient)
 
-### Normalization
+### Gradient Descent
+
+**The Gradient Descent algorithm iteratively updates parameters to minimize the cost function $J(\theta)$**
+
+#### Normalization
 
 To improve convergence, data is normalized:
 
@@ -148,10 +152,6 @@ $$x_{norm} = \frac{x - \mu}{\sigma}$$
 
 | $\mu$ | moyenne |
 | $\sigma$ | écart-type |
-
-### Gradient Descent
-
-**The Gradient Descent algorithm iteratively updates parameters to minimize the cost function $J(\theta)$**
 
 EstimatePrice Function :
 ```python
@@ -185,7 +185,7 @@ tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
 
 $$tmp_\theta1 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i]) * mileage[i]$$
 
-### Denormalization
+#### Denormalization
 
 To predict a price from a mileage, the input mileage is normalized before applying the model:
 
