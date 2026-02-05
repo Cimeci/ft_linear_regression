@@ -234,6 +234,16 @@ Ft_linear_regression/
 
 ---
 
+## Sources
+
+[linear regression explanation](https://www.w3schools.com/python/python_ml_linear_regression.asp)
+[gradient descent explanation 1](https://www.geeksforgeeks.org/machine-learning/gradient-descent-in-linear-regression/)
+[gradient descent explanation 2](https://www.analyticsvidhya.com/blog/2021/04/gradient-descent-in-linear-regression/)
+[matplotlib documentation](https://matplotlib.org/stable/api/)
+[pandas documentation](https://egallic.fr/Enseignement/Python/pandas.html)
+
+---
+
 ## Author
 
 **Cimeci**
