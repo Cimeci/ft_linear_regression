@@ -150,6 +150,8 @@ To improve convergence, data is normalized:
 
 $$x_{norm} = \frac{x - \mu}{\sigma}$$
 
+| Symbol | Description |
+| --- | --- |
 | $\mu$ | moyenne |
 | $\sigma$ | écart-type |
 
@@ -209,7 +211,7 @@ $$\theta_1 := \theta_1 - \alpha \frac{\partial J}{\partial \theta_1}$$
 
 #### Denormalization
 
-To predict a price from a mileage, the input mileage is normalized before applying the model:
+To use the model for prediction, we need to denormalize the parameters:
 
 $$\boxed{\theta_1^{real} = \frac{\theta_1}{\sigma}}$$
 
