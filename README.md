@@ -165,7 +165,9 @@ error = self.estimate - self.price
 
 and the error vector is used to calculate the partial derivatives of the cost function with respect to $\theta_0$ and $\theta_1$.
 
-For  $\theta_0$ :
+
+
+*To get tmp_$\theta_0$ for update $\theta_0$ :*
 
 Mathematical formula :
 
@@ -180,7 +182,13 @@ code:
 tmp_theta0 = self.learning_rate * (1/self.m) * error.sum()
 ```
 
-For  $\theta_1$ :
+update $\theta_0$ :
+
+$$\theta_0 := \theta_0 - \alpha \frac{\partial J}{\partial \theta_0}$$
+
+
+
+*To get tmp_$\theta_1$ for update $\theta_1$ :*
 
 Mathematical formula :
 
@@ -194,6 +202,10 @@ code:
 ```python
 tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
 ```
+
+update $\theta_0$ :
+
+$$\theta_0 := \theta_0 - \alpha \frac{\partial J}{\partial \theta_0}$$
 
 #### Denormalization
 
