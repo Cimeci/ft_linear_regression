@@ -167,23 +167,29 @@ and the error vector is used to calculate the partial derivatives of the cost fu
 
 For  $\theta_0$ :
 
+Mathematical formula :
 $$\frac{\partial J}{\partial \theta_0} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)})$$
 
+Subject Formule :
+$$tmp_\theta0 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i])$$
+
+code:
 ```python
 tmp_theta0 = self.learning_rate * (1/self.m) * error.sum()
 ```
 
-$$tmp_\theta0 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i])$$
-
 For  $\theta_1$ :
 
+Mathematical formula :
 $$\frac{\partial J}{\partial \theta_1} = \frac{1}{m} \sum (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}$$
 
+Subject Formule :
+$$tmp_\theta1 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i]) * mileage[i]$$
+
+code:
 ```python
 tmp_theta1 = self.learning_rate * (1/self.m) * (error * self.km_norm).sum()
 ```
-
-$$tmp_\theta1 = learningRate ∗ \frac{1}{m} \sum_{i=0}^{m-1} (estimatePrice(mileage[i]) − price[i]) * mileage[i]$$
 
 #### Denormalization
 
